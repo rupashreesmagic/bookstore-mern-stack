@@ -10,15 +10,5 @@
       "src" : "/.*",
       "dest" : "index.js"
     }
-  ],
-  
-    "functions":[ {
-      "backend/index.js": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
-    }]
-  
-  
-
+  ]
 }

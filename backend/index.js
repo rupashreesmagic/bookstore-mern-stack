@@ -1,3 +1,4 @@
+import {path} from 'path';
 import express from 'express';
 import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
@@ -21,12 +22,18 @@ app.use(cors());
 //   })
 // );
 
+app.get('/',(request,response)=>{
+  app.use(express.static(path.resolve(__dirname,"frontend","dist")));
+  response.sendFile(path.resolve(__dirname,"frontend","dist","index.html"));
+})
 app.get('/', (request, response) => {
   console.log(request);
   return response.status(234).send('Welcome To MERN Stack Tutorial');
 });
 
 app.use('/books', booksRoute);
+
+
 
 mongoose
   .connect(mongoDBURL)
